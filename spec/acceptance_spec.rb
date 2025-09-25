@@ -2,7 +2,7 @@ require 'json'
 
 require 'receipt_generator'
 
-RSpec.describe 'Receipt acceptance - Input 1' do
+RSpec.describe 'Receipt Generator acceptance tests' do
   let(:fixtures_dir) { File.join(__dir__, 'fixtures', 'orders') }
 
   it 'prints the expected receipt for input1' do
@@ -16,6 +16,36 @@ RSpec.describe 'Receipt acceptance - Input 1' do
         '1 chocolate bar: 0.85',
         'Sales Taxes: 1.50',
         'Total: 42.32'
+      ].join("\n")
+    )
+  end
+
+  it 'prints the expected receipt for input2' do
+    data = JSON.parse(File.read(File.join(fixtures_dir, 'input2.json')))
+    output = ReceiptGenerator.new.from_hash(data)
+
+    expect(output).to eq(
+      [
+        '1 imported box of chocolates: 10.50',
+        '1 imported bottle of perfume: 54.65',
+        'Sales Taxes: 7.65',
+        'Total: 65.15'
+      ].join("\n")
+    )
+  end
+
+  it 'prints the expected receipt for input3' do
+    data = JSON.parse(File.read(File.join(fixtures_dir, 'input3.json')))
+    output = ReceiptGenerator.new.from_hash(data)
+
+    expect(output).to eq(
+      [
+        '1 imported bottle of perfume: 32.19',
+        '1 bottle of perfume: 20.89',
+        '1 packet of headache pills: 9.75',
+        '3 imported box of chocolates: 35.55',
+        'Sales Taxes: 7.90',
+        'Total: 98.38'
       ].join("\n")
     )
   end
