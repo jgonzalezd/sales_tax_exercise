@@ -96,3 +96,6 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+# Add lib directory to the load path for requiring domain classes
+$LOAD_PATH.unshift(File.expand_path('../lib', __dir__)) unless $LOAD_PATH.include?(File.expand_path('../lib', __dir__))
