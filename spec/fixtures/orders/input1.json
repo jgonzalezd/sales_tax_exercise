@@ -1,8 +1,8 @@
 {
   "items": [
-    { "quantity": 2, "name": "book", "price": 12.49 },
-    { "quantity": 1, "name": "music CD", "price": 14.99 },
-    { "quantity": 1, "name": "chocolate bar", "price": 0.85 }
+    { "quantity": 2, "name": "book", "price": 12.49, "category": "book", "imported": false },
+    { "quantity": 1, "name": "music CD", "price": 14.99, "category": "other", "imported": false },
+    { "quantity": 1, "name": "chocolate bar", "price": 0.85, "category": "food", "imported": false }
   ]
 }
 

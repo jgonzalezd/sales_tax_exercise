@@ -1,0 +1,5 @@
+{
+  "items": [
+    { "quantity": 1, "name": "notebook", "price": 12.49, "category": "other", "imported": false }
+  ]
+}

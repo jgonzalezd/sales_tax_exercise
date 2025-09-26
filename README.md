@@ -24,16 +24,22 @@ ruby bin/receipt <path-to-json>
 ```
 
 ### Input JSON format
-The file should contain an `items` array. Each item requires `quantity`, `name`, and `price`:
+The file should contain an `items` array. Each item requires `quantity`, `name`, `price`, `category`, and `imported`:
 ```json
 {
   "items": [
-    { "quantity": 2, "name": "book", "price": 12.49 },
-    { "quantity": 1, "name": "music CD", "price": 14.99 },
-    { "quantity": 1, "name": "chocolate bar", "price": 0.85 }
+    { "quantity": 2, "name": "book", "price": 12.49, "category": "book", "imported": false },
+    { "quantity": 1, "name": "music CD", "price": 14.99, "category": "other", "imported": false },
+    { "quantity": 1, "name": "chocolate bar", "price": 0.85, "category": "food", "imported": false }
   ]
 }
 ```
+
+### Assumptions
+- **category**: One of `book`, `food`, `medical`, `other`. Used to determine basic tax exemption.
+- **imported**: Boolean indicating whether the item is imported. Import duty is applied only when this is `true`. The displayed `name` may still contain the word "imported", but tax logic relies on this boolean.
+- **quantity**: Integer ≥ 1.
+- **price**: Decimal number; calculations round up taxes to the nearest 0.05 and totals to two decimals.
 
 ### Example
 ```

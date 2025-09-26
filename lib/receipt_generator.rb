@@ -4,11 +4,7 @@ class ReceiptGenerator
   BASIC_TAX_RATE = 0.10
   IMPORT_TAX_RATE = 0.05
 
-  EXEMPT_CATEGORIES = [
-    'book',
-    'chocolate', 'chocolates',
-    'pill', 'pills'
-  ].freeze
+  EXEMPT_CATEGORIES = %w[book food medical].freeze
   
   def from_hash(hash)
     order = Order.from_hash(hash)
@@ -46,12 +42,12 @@ class ReceiptGenerator
   end
 
   def exempt?(item)
-    name = item.name.downcase
-    EXEMPT_CATEGORIES.any? { |kw| name.include?(kw) }
+    return false if item.category.nil?
+    EXEMPT_CATEGORIES.include?(item.category)
   end
 
   def imported?(item)
-    item.name.downcase.include?('imported')
+    item.imported?
   end
 
   # Round up to the nearest 0.05

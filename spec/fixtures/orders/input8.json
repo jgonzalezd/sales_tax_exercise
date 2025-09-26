@@ -1,0 +1,5 @@
+{
+  "items": [
+    { "quantity": 1, "name": "box of imported chocolates", "price": 10.00, "category": "food", "imported": true }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "items": [
+    { "quantity": 1, "name": "music CD", "price": 10.00, "category": "other", "imported": false }
+  ]
+}

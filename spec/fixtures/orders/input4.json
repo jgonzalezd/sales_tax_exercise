@@ -1,0 +1,5 @@
+{
+  "items": [
+    { "quantity": 2, "name": "imported bottle of perfume", "price": 47.50, "category": "other", "imported": true }
+  ]
+}

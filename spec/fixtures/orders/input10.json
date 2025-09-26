@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "quantity": 1, "name": "notebook", "price": 12.49, "category": "other", "imported": false },
+    { "quantity": 1, "name": "imported box of chocolates", "price": 11.24, "category": "food", "imported": true },
+    { "quantity": 2, "name": "imported bottle of perfume", "price": 47.50, "category": "other", "imported": true }
+  ]
+}
